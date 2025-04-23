@@ -1,0 +1,296 @@
+:root {
+    --main-color: color(display-p3 0.8 0.4 0.6);
+    --fallback-color: hotpink;
+    --text-color: #333;
+    --highlight-color: color-mix(in srgb, orange 70%, purple 30%);
+    --bg-color: rgb(255, 228, 240);
+    --alt-color: hsl(320, 100%, 85%);
+}
+
+body {
+    color: var(--text-color, black);
+    background-color: var(--bg-color, pink);
+    font-family: 'Playfair Display', serif;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+/* Color */
+h1,
+h2 {
+    color: var(--main-color, hotpink);
+}
+
+h3 {
+    color: #FF69B4;
+}
+
+p {
+    color: color(display-p3 0.3 0.1 0.5);
+}
+
+b,
+strong {
+    color: color-mix(in lch, red 60%, blue 40%);
+}
+
+/* Box Model */
+/* Margin Longhand */
+section {
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+/* Margin Shorthand */
+nav {
+    margin: 10px 20px 10px 20px;
+}
+
+/* Margin Auto */
+main {
+    margin: auto;
+    max-width: 1000px;
+}
+
+/* Padding Longhand */
+fieldset {
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+}
+
+/* Padding Shorthand */
+header {
+    padding: 20px 10px 15px 10px;
+}
+
+/* Border */
+img {
+    border-style: solid;
+    border-width: 3px;
+    border-color: purple;
+    border-radius: 10px;
+}
+
+/* Units */
+h1 {
+    font-size: 3rem;
+    /* relative */
+}
+
+h2 {
+    font-size: 24px;
+    /* absolute */
+}
+
+h3 {
+    font-size: 1.5em;
+    /* relative */
+}
+
+p {
+    margin-bottom: 1lh;
+    /* relative (line-height) */
+}
+
+footer {
+    font-size: 12pt;
+    /* absolute */
+}
+
+form {
+    width: 80ch;
+    /* absolute */
+}
+
+/* Text */
+p {
+    text-align: left;
+}
+
+a {
+    text-decoration: underline;
+}
+
+/* Display */
+details {
+    display: block;
+}
+
+span {
+    display: inline-block;
+}
+
+section+section {
+    display: block;
+}
+
+/* Sizing */
+img,
+video {
+    height: auto;
+    width: 100%;
+    max-width: 700px;
+    min-width: 200px;
+}
+
+/* Position */
+nav {
+    position: sticky;
+    top: 0;
+    background-color: var(--alt-color);
+}
+
+audio {
+    position: relative;
+    left: 10px;
+}
+
+video {
+    position: static;
+}
+
+/* Pseudo-class */
+a:hover {
+    color: red;
+}
+
+button:active {
+    background-color: lightcoral;
+}
+
+/* Flexbox */
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+/* Flex children */
+.main-container>section {
+    flex: 1 1 300px;
+    border: 1px dashed lightpink;
+}
+
+/* Grid */
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    align-items: start;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    img,
+    video {
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    header,
+    footer {
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+}
+
+/* Class selector */
+.highlight {
+    background-color: lightyellow;
+}
+
+/* ID selector */
+#agenda {
+    background-color: rgba(255, 182, 193, 0.2);
+}
+
+/* Universal selector */
+* {
+    box-sizing: border-box;
+}
+
+/* Element selector */
+textarea {
+    resize: vertical;
+}
+
+/* Attribute selector */
+input[type="checkbox"] {
+    accent-color: hotpink;
+}
+
+/* Selector list */
+h1,
+h2,
+h3 {
+    font-weight: normal;
+}
+
+/* Descendant combinator */
+section ul {
+    list-style-type: square;
+}
+
+/* Child combinator */
+main>section {
+    background-color: hsla(340, 100%, 95%, 0.4);
+}
+
+/* General sibling combinator */
+h2~p {
+    font-style: italic;
+}
+
+/* Adjacent sibling combinator */
+h2+ol {
+    font-weight: bold;
+}
+
+/* Combining two selectors */
+h2.highlight {
+    color: darkviolet;
+}
+
+/* :has() selector */
+form:has(input[type="radio"]:checked) {
+    outline: 2px dashed red;
+}
+
+/* Nested */
+@layer base {
+    nav {
+        a {
+            color: purple;
+
+            &:hover {
+                background-color: lavenderblush;
+            }
+        }
+    }
+}
